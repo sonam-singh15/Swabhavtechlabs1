@@ -1,8 +1,5 @@
 package com.techlab.basic;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 public class WelcomeTest {
 	public static void main(String args[]) {
 		short svar=10;

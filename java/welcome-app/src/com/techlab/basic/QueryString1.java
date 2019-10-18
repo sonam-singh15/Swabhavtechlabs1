@@ -15,15 +15,6 @@ public class QueryString1 {
 		System.out.println(a);
 		}
 		
-	   /* String s1 = "";
-	    String[] s2 = str.split(".com@developer=");
-
-	    for ( int i = 0; i < s2.length; i++)
-	    {
-	        s1 = s1 + s2[i];
-	    }
-	    System.out.println(s1);*/
-		
 		
 	}
 
