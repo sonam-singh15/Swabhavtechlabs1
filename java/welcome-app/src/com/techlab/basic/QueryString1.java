@@ -2,19 +2,16 @@ package com.techlab.basic;
 
 public class QueryString1 {
 	public static void main(String args[]) {
-		String str = "https://www.swabhavtechlab.com@developer=sonam";
-		
-		//String[] arrofstr=str.split("s",7);
-	    //String[] arrofstr1=str.split("="); // correct op
-		String[] arrofstr1=str.split(".com@developer=");
-
-		//String[] arrofstr1=str.split("[, @ // :]+");
-		
-		for(String a:arrofstr1)
-		{
-		System.out.println(a);
+		String str = "www.swabhavtechlab.com@developer=sonam";
+		// String[] arrofstr1=str.split("="); // correct op
+		String[] arrofstr1 = str.split("[ . =  @]");
+		int length=arrofstr1.length;
+		System.out.println("len is:" +length);
+		for (String a : arrofstr1) {
+			System.out.println(a);
 		}
 		
+
 		
 	}
 
