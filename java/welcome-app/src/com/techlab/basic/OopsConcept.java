@@ -19,7 +19,7 @@ public class OopsConcept {
 	return c;
 }
 
-public static double addTwoNo1(double a,double b)
+public double addTwoNo1(double a,double b)
 {
 	double d;
 	d=(double)(a+b);

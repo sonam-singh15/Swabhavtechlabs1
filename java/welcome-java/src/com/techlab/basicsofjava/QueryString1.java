@@ -1,6 +1,8 @@
-package com.techlab.basic;
+package com.techlab.basicsofjava;
 
-public class QueryString {
+
+
+public class QueryString1 {
 	public static void main(String args[]) {
 		String url = "https://www.google.com?developer=mitali";
 		int start,start1,end,end1;
