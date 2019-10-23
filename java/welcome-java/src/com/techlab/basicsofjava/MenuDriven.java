@@ -7,6 +7,7 @@ public class MenuDriven {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static int randNo = 0, option = 0, nooftry = 0;
+	
 
 	public static void main(String args[]) {
 		Random rand = new Random();
