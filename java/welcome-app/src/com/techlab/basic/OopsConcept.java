@@ -1,28 +1,27 @@
 package com.techlab.basic;
 
-public class OopsConcept {
+public class OopsConcept extends oopsconcept {
+	
 	public static void main(String args[]) {
+	    
+		oopsconcept o=new oopsconcept();
+		o.a=40;
+		o.b=17;
+		o.Add(40, 32);
+		System.out.println("addition is :" +o.a);
+		System.out.println("addition is :" +o.b);
 		
-		int sum=addTwoNo(8, 9);
-	     OopsConcept o1=new OopsConcept();
-	     double d;
-	     d=o1.addTwoNo1(12.4, 14.7);
-	     
-		System.out.println("addition is :" +sum);
-		System.out.println("addition is :" +d);
 	}
-
- public static int addTwoNo(int a,int b)
-{
-	int c;
-	c=a+b;
-	return c;
 }
-
-public double addTwoNo1(double a,double b)
-{
-	double d;
-	d=(double)(a+b);
-	return d;
+class oopsconcept {
+	 int a=10,b=20;
+	 int c=a+b;
+	 
+	 void Add(int a,int b)
+	 {
+		 c=a+b;
+		 System.out.println("sum is" +c);
+	 }
+	
 }
-}
+ 
