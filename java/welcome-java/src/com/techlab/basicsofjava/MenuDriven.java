@@ -4,19 +4,20 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class MenuDriven {
-	
+
 	public static Scanner sc = new Scanner(System.in);
 	public static Random rand = new Random();
-	static boolean win =false;
-	static boolean quit=false;
+	static boolean win = false;
+	static boolean quit = false;
 	public static int randNo = 0, option = 0, nooftry = 0;
+
 	public static void main(String args[]) {
 		randNo = rand.nextInt(10);
 		display();
 	}
 
 	public static void display() {
-		final int Start = 1, Stop = 2, Quit = 3;
+		final int Start = 1, Stop = 2;
 		System.out.println("Welcome to no guessing game");
 		System.out.println("Menu:");
 		System.out.println("1.Start");
@@ -39,12 +40,11 @@ public class MenuDriven {
 		} while (option != 3);
 	}
 
-	public static void start(){
+	public static void start() {
 		boolean win = false;
 		while (win == false) {
 			System.out.println("enter any no between 0 to 10 ");
 			int Guess = sc.nextInt();
-			System.out.print(Guess);
 			nooftry++;
 			if (Guess == randNo) {
 				win = true;
@@ -55,25 +55,24 @@ public class MenuDriven {
 			}
 
 		}
-		System.out.println("You win");
+		System.out.println("!!Congratulations,You Won!!");
 		System.out.println("Your no was:" + randNo);
-		System.out.println("It took the no of try as :" + nooftry);
+		System.out.println("It took no of attempts:" +nooftry);
+		stop();
 
 	}
+
 	public static void stop() {
 		System.out.println("Would you like to play again");
-		String play=sc.next();
+		String play = sc.next();
 		if (play.equalsIgnoreCase("y")) {
 			System.out.println("The game will restart");
-			win=false;
+			win = false;
 			start();
-		}
-	 else {
+		} else {
 			System.out.println("The game will quit");
-			quit=true;
+			quit = true;
 		}
 	}
-
-	
 
 }
