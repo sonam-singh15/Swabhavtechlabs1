@@ -8,7 +8,7 @@ public class RectangleTest {
 		Rectangle small = new Rectangle();
 		System.out.println("small rectangle details are");
 		small.setheight(-6);
-		small.setwidth(100);
+		small.setwidth(400);
 		System.out.println("height " + small.getHeight());
 		System.out.println("width " + small.getwidth());
 		System.out.println("area of small rectangle " + small.calculateArea());

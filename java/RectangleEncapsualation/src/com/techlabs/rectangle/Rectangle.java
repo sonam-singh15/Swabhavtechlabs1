@@ -12,9 +12,14 @@ public class Rectangle {
 
 	public void setheight(int newheight) {
 		
-		if (newheight < 0 ) {
+		if (newheight < 0) {
 			newheight = 1;
 			System.out.println("you are using an negative number,it will be reset to 1");
+		}
+		height = newheight;
+		if (newheight>100) {
+			newheight = 100;
+			System.out.println("you are exciding the limit ,it will be reset to 100");
 		}
 		height = newheight;
 	}
@@ -34,8 +39,8 @@ public class Rectangle {
 
 	public int calculateArea() {
 		int area;
-		// height=height>100?100:height;
-		// width=width>100?100:width;
+		 height=height>100?100:height;
+		 width=width>100?100:width;
 		height = height < 0 ? 1 : height;
 		width = width < 0 ? 1 : width;
 		area = height * width;
