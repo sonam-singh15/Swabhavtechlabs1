@@ -12,12 +12,7 @@ public class Rectangle {
 
 	public void setheight(int newheight) {
 
-		if (newheight < 0) {
-			newheight = 1;
-			System.out.println("you are using an negative number,it will be reset to 1");
-		} else
-			newheight = 100;
-		height = newheight;
+		int m = checkRangeOfRectangle(newheight);height = m;
 	}
 
 	public int getwidth() {
@@ -26,18 +21,20 @@ public class Rectangle {
 
 	public void setwidth(int newwidth) {
 
-		if (newwidth < 0) {
-			newwidth = 1;
-			System.out.println("you are using an negative number,it will be reset to 1");
+		int m = checkRangeOfRectangle(newwidth);width = m;
+
+	}
+
+	public int checkRangeOfRectangle(int dimension) {
+		if (dimension < 0) {
+			dimension = 1;
 		} else
-			newwidth = 100;
-		width = newwidth;
+			dimension = 100;
+		return dimension;
 	}
 
 	public int calculateArea() {
-		int area = height * width;
-		return area;
+		int area = height * width;return area;
 	}
 
 }
-
