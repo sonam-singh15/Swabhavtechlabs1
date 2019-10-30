@@ -7,10 +7,16 @@ public class Rectangle {
 	
 	public int getHeight()
 	{
+		
 		return height;
 	}
 	public void setheight(int newheight)
 	{
+		if(newheight>100)
+		{
+	      newheight=100;
+	 System.out.println("you are exceeding the limit value of height will be reset to 100");
+		}
 		height=newheight;
 	}
 	public int getwidth()
@@ -19,6 +25,11 @@ public class Rectangle {
 	}
 	public void setwidth(int newwidth)
 	{
+		if(newwidth>100)
+		{
+			newwidth=100;
+	   System.out.println("you are exceeding the limit value of width will be reset to 100");
+		}
 		width=newwidth;
 	}
 	
