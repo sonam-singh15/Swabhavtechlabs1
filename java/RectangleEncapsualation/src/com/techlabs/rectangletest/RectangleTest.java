@@ -8,14 +8,14 @@ public class RectangleTest {
 	{
 		Rectangle small= new Rectangle();
 		System.out.println("small rectangle details are");
-		small.setheight(500);
+		small.setheight(-6);
 		small.setwidth(700);
 		System.out.println("height " +small.getHeight());
 		System.out.println("width " +small.getwidth());
 		System.out.println("area of small rectangle " +small.calculateArea());
 		Rectangle big=new Rectangle();
 		System.out.println("big rectangle details are");
-		big.setheight(20);
+		big.setheight(-20);
 		big.setwidth(100);
 		System.out.println("height " +big.getHeight());
 		System.out.println("width " +big.getwidth());
