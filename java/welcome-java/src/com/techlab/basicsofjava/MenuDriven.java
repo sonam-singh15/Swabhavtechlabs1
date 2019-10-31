@@ -12,7 +12,7 @@ public class MenuDriven {
 	public static int randNo = 0, option = 0, nooftry = 0;
 
 	public static void main(String args[]) {
-		randNo = rand.nextInt(10);
+		
 		display();
 	}
 
@@ -41,8 +41,9 @@ public class MenuDriven {
 	}
 
 	public static void start() {
+		randNo = rand.nextInt(10);
 		boolean win = false;
-		while (win == false) {
+		while (!win) {
 			System.out.println("enter any no between 0 to 10 ");
 			int Guess = sc.nextInt();
 			nooftry++;
