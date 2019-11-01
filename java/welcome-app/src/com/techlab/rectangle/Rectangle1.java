@@ -1,6 +1,6 @@
 package com.techlab.rectangle;
 
-public class Rectangle {
+public class Rectangle1 {
 	private int height;
 	private int width;
 	private String color;
@@ -13,7 +13,8 @@ public class Rectangle {
 	}
 
 	public void setcolor(String newcolor) {
-		color = newcolor;
+		String s = checkcolor(newcolor);
+		color = s;
 	}
 
 	public int getHeight() {
@@ -21,7 +22,9 @@ public class Rectangle {
 	}
 
 	public void setheight(int newheight) {
-		height = newheight;
+
+		int m = checkRangeOfRectangle(newheight);
+		height = m;
 	}
 
 	public int getwidth() {
@@ -29,14 +32,16 @@ public class Rectangle {
 	}
 
 	public void setwidth(int newwidth) {
-		width = newwidth;
+
+	int m = checkRangeOfRectangle(newwidth);
+		width = m;
 
 	}
 
 	private String checkcolor(String color) {
-		if (color.equalsIgnoreCase("RED") || color.equalsIgnoreCase("BLUE") || color.equalsIgnoreCase("GREEN"))
+		if (color.equalsIgnoreCase("RED") ||color.equalsIgnoreCase("BLUE") || color.equalsIgnoreCase("GREEN")) 
 			return color;
-
+		
 		return "RED";
 
 	}
