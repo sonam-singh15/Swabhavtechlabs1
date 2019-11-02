@@ -26,8 +26,9 @@ public class PersonTest {
 		System.out.println("height:- " + p.getHeight());
 		System.out.println("weight:- " + p.getWeight());
 		System.out.println("gender:- " + p.getGender());
+		System.out.println("Person is :- " +p.calculateBodyCalorie());
 	    System.out.print("\nThe Body Mass Index (BMI) is " +p.calculateBmi()+ " kg/m2");
-
+        
 
 	}
 

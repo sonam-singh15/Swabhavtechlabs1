@@ -55,12 +55,16 @@ public class Person {
 
 	public float calculateBmi() {
 		float BMI = (float) (weight / (height * height));
+		BMI=(float) (BMI/3.2808);
 		return BMI;
 
 	}
 	public String calculateBodyCalorie()
 	{
-		return name;
+		if(calculateBmi()<18.5)
+		return "Underweight";
+		
+		return "Normal";
 		
 	}
 
