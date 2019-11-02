@@ -11,7 +11,7 @@ public class PersonTest {
 		p.workout();
 		printInfo(p);
 
-		System.out.println(" ");
+		System.out.println("   ");
 
 		Person p1 = new Person("Anjali", 22);
 		printInfo(p1);
@@ -26,6 +26,8 @@ public class PersonTest {
 		System.out.println("height:- " + p.getHeight());
 		System.out.println("weight:- " + p.getWeight());
 		System.out.println("gender:- " + p.getGender());
+	    System.out.print("\nThe Body Mass Index (BMI) is " +p.calculateBmi()+ " kg/m2");
+
 
 	}
 

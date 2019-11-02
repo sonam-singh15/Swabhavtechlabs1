@@ -1,4 +1,4 @@
-package com.techlab.person;
+package com.techlab.person.copy;
 
 public class Person {
 	private String name;
@@ -18,9 +18,9 @@ public class Person {
 	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
-		this.height = 5.5;
-		this.weight = 50;
-		this.gender = GenderOption.MALE;
+		this.height=5.5;
+		this.weight=50;
+		this.gender=GenderOption.MALE;
 	}
 
 	public String getName() {
@@ -51,17 +51,6 @@ public class Person {
 	public void eat() {
 		weight = weight + (weight * 5) / 100;
 		height = height + (height * 25) / 100;
-	}
-
-	public float calculateBmi() {
-		float BMI = (float) (weight / (height * height));
-		return BMI;
-
-	}
-	public String calculateBodyCalorie()
-	{
-		return name;
-		
 	}
 
 }
