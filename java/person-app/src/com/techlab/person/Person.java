@@ -33,18 +33,15 @@ public class Person {
 	}
 
 	public double getHeight() {
-		eat();
 		return height;
 	}
 
 	public float getWeight() {
-		workout();
-		eat();
 		return weight;
 	}
 
 	public void workout() {
-		weight = (float) (weight-(weight *0.2));
+		weight = (float) (weight - (weight * 0.2));
 
 	}
 

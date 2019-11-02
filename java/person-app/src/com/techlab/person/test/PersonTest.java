@@ -6,6 +6,9 @@ import com.techlab.person.Person;
 public class PersonTest {
 	public static void main(String[] args) {
 		Person p = new Person("Sonam", GenderOption.FEMALE, 24, 48, 5.6);
+
+		p.eat();
+		p.workout();
 		printInfo(p);
 
 		System.out.println(" ");
