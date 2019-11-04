@@ -4,18 +4,18 @@ public class Account {
 	private String accno;;
 	private String accname;
 	private double balance;
-	private final float MIN_BALANCE=500;
-	
-	public Account(String accno,String accname,double balance) {
-		this.accname=accname;
-		this.accno=accno;
-		this.balance=balance;
+	private final float MIN_BALANCE = 500;
+
+	public Account(String accno, String accname, double balance) {
+		this.accname = accname;
+		this.accno = accno;
+		this.balance = balance;
 	}
 
 	public Account(String accno, String accname) {
-		this.accname=accname;
-		this.accno=accno;
-		this.balance=500;
+		this.accname = accname;
+		this.accno = accno;
+		this.balance = 500;
 	}
 
 	public String getAccountName() {
@@ -31,19 +31,21 @@ public class Account {
 	}
 
 	public void deposit(double amt) {
-		
-			balance=balance+amt;
+		balance = balance + amt;
 	}
 
 	public void withdraw(double amt) {
-		if(balance>=amt)
-		balance=balance-amt;
-		else if(balance>=MIN_BALANCE)
-			System.out.println("balance is :- " +balance);
+		if (balance >= amt) {
+			balance = balance - amt;
+			System.out.println("balance:- " + balance);
+		}
+
+		else if (balance >= MIN_BALANCE)
+			System.out.println("Remaining balance is :-" + balance);
+
 		else
 			System.out.println("Insufficiant balance !! opertion not possible");
-		
-	}
 
+	}
 
 }
