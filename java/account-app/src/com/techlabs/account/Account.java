@@ -37,13 +37,11 @@ public class Account {
 	public void withdraw(double amt) {
 		if (balance >= amt) {
 			balance = balance - amt;
-			System.out.println("balance:- " + balance);
 		}
-
 		else if (balance >= MIN_BALANCE)
+		{
 			System.out.println("Remaining balance is :-" + balance);
-
-		else
+		}	else
 			System.out.println("Insufficiant balance !! opertion not possible");
 
 	}
