@@ -1,4 +1,4 @@
-package com.techlab.basic;
+ package com.techlab.basic;
 
 import com.techlab.rectangle.Rectangle1;
 
