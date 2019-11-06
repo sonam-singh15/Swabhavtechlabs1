@@ -1,8 +1,9 @@
 package com.techlab.playertest;
 
 import com.techlab.player.Player;
+import java.io.Serializable;
 
-public class PlayerTest {
+public class PlayerTest implements Serializable{
 	public static void main(String[] args) {
 		Player p1 = new Player("Sonam", 24, 101);
 		printInfo(p1);
