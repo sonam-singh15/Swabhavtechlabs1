@@ -7,6 +7,15 @@ public class Reflector {
 	public Reflector() {
 		s = "swabhavtechlabs";
 	}
+	public String getName(String s)
+	{
+		return s;
+	}
+
+	public void setName(String s)
+	{
+		this.s=s;
+	}
 
 	public String getString() {
 		return s;

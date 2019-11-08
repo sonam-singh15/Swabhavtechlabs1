@@ -1,18 +1,19 @@
 package com.techlab.reflectortest;
 
+import java.io.PrintStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-import com.techlab.reflector.Reflector;
-
-public class ReflectorTest {
-
+public class ReflectorTest1 {
 	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
 
-		Class c = Reflector.class;
+		Class c = PrintStream.class;
 		String className = c.getName();
 		System.out.println("The name of class is " + className);
+
+		int classModifiers = c.getModifiers();
+		System.out.println("modifier is:" + Modifier.isPublic(classModifiers));
 
 		Method[] methods = c.getMethods();
 
@@ -25,11 +26,8 @@ public class ReflectorTest {
 
 		}
 
-		int classModifiers = c.getModifiers();
-		System.out.println("modifier is:" + Modifier.isPublic(classModifiers));
-
 		Constructor c1 = c.getConstructor(null);
-		String constructorName=c1.getName();
+		String constructorName = c1.getName();
 		System.out.println("constructor = " + constructorName);
 
 	}
