@@ -10,7 +10,7 @@ public class AccountToStringTest {
 
 		System.out.println(" ");
 
-		System.out.println(a.toString1());
+		System.out.println(a.toString());
 
 	}
 

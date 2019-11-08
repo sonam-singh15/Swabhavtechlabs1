@@ -50,12 +50,6 @@ public class Account implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (this.getClass() != obj.getClass())
-			return false;
 		Account that = (Account) obj;
 		if (this.accname != that.accname)
 			return false;
@@ -63,11 +57,6 @@ public class Account implements Serializable {
 			return false;
 		return true;
 
-	}
-
-	public String toString1() {
-		String result = "AcoountName:- " + accname + " Account no:- " + accno + " Balance:- " + balance;
-		return result;
 	}
 
 	@Override
