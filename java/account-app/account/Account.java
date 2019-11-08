@@ -7,6 +7,17 @@ public class Account implements Serializable {
 	private String accname;
 	private double balance;
 	private final float MIN_BALANCE = 500;
+	private static final long serialVersionUID = 1L;
+	private transient int nonSerializeValueSalary;
+
+
+	public int getNonSerializeValueSalary() {
+		return nonSerializeValueSalary;
+	}
+
+	public void setNonSerializeValueSalary(int nonSerializeValueSalary) {
+		this.nonSerializeValueSalary = nonSerializeValueSalary;
+	}
 
 	public Account(String accno, String accname, double balance) {
 		this.accname = accname;
