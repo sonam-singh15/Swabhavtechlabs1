@@ -29,7 +29,7 @@ public class ReflectorTest {
 		System.out.println("modifier is:" + Modifier.isPublic(classModifiers));
 
 		Constructor c1 = c.getConstructor(null);
-		String constructorName=c1.getName();
+		String constructorName = c1.getName();
 		System.out.println("constructor = " + constructorName);
 
 	}

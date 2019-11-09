@@ -1,19 +1,25 @@
 package com.techlab.basicsofjava;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 
 public class ReadingFromFile {
 	public static void main(String[] args) throws IOException {
 
-		FileReader fr = new FileReader("C:\\Users\\Swabhav\\Desktop\\sample.csv");
-		int i;
-		System.out.println("Read Data Line by Line With Header \n");
-		System.out.println("_______________________________________________");
+		try {
+			FileInputStream fstream = new FileInputStream("C:\\\\Users\\\\Swabhav\\\\Desktop\\\\db_app.log");
+			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+			String strLine;
+			strLine = br.readLine();
 
-		while ((i = fr.read()) != -1)
-			System.out.print((char) i);
-
+			 while ((strLine = br.readLine()) != null)   {
+				if (strLine.contentEquals("ERROR"))
+				{
+					System.out.println(strLine);
+			}
+			}
+			fstream.close();
+		} catch (Exception e) {
+			System.err.println("Error: " + e.getMessage());
+		}
 	}
 }
