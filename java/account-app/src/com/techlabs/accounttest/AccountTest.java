@@ -9,6 +9,10 @@ import com.techlabs.account.Account;
 public class AccountTest {
 	public static void main(String[] args) {
 		Account a = new Account("101", "Sonam", 5000);
+		
+		System.out.println(a);
+
+		System.out.println(a.toString());
 
 		a.deposit(0);
 		printInfo(a);

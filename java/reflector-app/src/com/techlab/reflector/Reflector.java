@@ -1,31 +1,43 @@
 package com.techlab.reflector;
 
+import java.lang.reflect.Method;
+
 public class Reflector {
 
-	private String s;
+	public Reflector(Class c) {
+		String className = c.getName();
+		System.out.println("The name of class is " + className);
 
-	public Reflector() {
-		s = "swabhavtechlabs";
-	}
-	public String getName(String s)
-	{
-		return s;
 	}
 
-	public void setName(String s)
-	{
-		this.s=s;
+	public void printMethoInfo(Class c) {
+		Method[] methods = c.getMethods();
+
+		for (Method method : methods) {
+			System.out.println("method = " + method.getName());
+		}
 	}
 
-	public String getString() {
-		return s;
+	public void printGetInfo(Class c) {
+		Method[] methods = c.getMethods();
+
+		for (Method method : methods) {
+			System.out.println("method = " + method.getName());
+			if (method.getName().startsWith("get"))
+				System.out.println("getter method");
+		}
 	}
 
-	public void method1() {
-		System.out.println("The string is " + s);
+	public void printSetInfo(Class c) {
+		Method[] methods = c.getMethods();
+
+		for (Method method : methods) {
+			System.out.println("method = " + method.getName());
+			if (method.getName().startsWith("set"))
+				System.out.println("setter method");
+
+		}
+
 	}
 
-	public void method2(int n) {
-		System.out.println("The number is " + n);
-	}
 }

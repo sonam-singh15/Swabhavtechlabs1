@@ -10,11 +10,11 @@ public class ReflectorTest {
 
 	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
 
-		Class c = Reflector.class;
-		String className = c.getName();
-		System.out.println("The name of class is " + className);
+		Reflector r = new Reflector(Object.class);
 
-		Method[] methods = c.getMethods();
+		Class c = Object.class;
+		r.printGetInfo(c);
+		System.out.println();
 
 		for (Method method : methods) {
 			System.out.println("method = " + method.getName());
@@ -31,6 +31,10 @@ public class ReflectorTest {
 		Constructor c1 = c.getConstructor(null);
 		String constructorName = c1.getName();
 		System.out.println("constructor = " + constructorName);
+		r.printMethoInfo(c);
+		System.out.println();
+		
+		
 
 	}
 
