@@ -1,16 +1,39 @@
 package com.techlab.guitar;
 
 public class Guitar {
-	private String serialno;
+	private static final Guitar ACOUSTIC = null;
+	private String serialno, model;
+	private Wood backwood;
+	private Wood topwood;
+	private Type type;
+	private Builder builder;
 	private double price;
-	private String builder;
-	private String model;
-	private String type;
-	private String topwood;
-	private String backwood;
 
-	public Guitar(String serialno, double price, String builder, String model, String type, String topwood,
-			String backwood) {
+	public enum Builder {
+		FENDER, MARTIN, GIBSON, COLLINGS, PRS;
+	}
+
+	public String toString() {
+		switch (getType()) {
+		case ACOUSTIC:
+			return "acoustic";
+		case ELECTRIC:
+			return "electric";
+
+		}
+		return null;
+	}
+
+	public enum Type {
+		ACOUSTIC, ELECTRIC;
+	}
+
+	public enum Wood {
+		INDIAN_ROSEWOOD, BRAZILLIAN_REDWOOD, AUSTRALIAN_REDWOOD;
+	}
+
+	public Guitar(String serialno, double price, Builder builder, String model, Type type, Wood topwood,
+			Wood backwood) {
 		this.serialno = serialno;
 		this.price = price;
 		this.builder = builder;
@@ -30,7 +53,7 @@ public class Guitar {
 		return price;
 	}
 
-	public String getbuilder() {
+	public Builder getbuilder() {
 		return builder;
 	}
 
@@ -38,15 +61,19 @@ public class Guitar {
 		return model;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public String getTopWood() {
+	public void setCurrentView(Type currentView) {
+		this.type = currentView;
+	}
+
+	public Wood getTopWood() {
 		return topwood;
 	}
 
-	public String getBackWood() {
+	public Wood getBackWood() {
 		return backwood;
 	}
 
