@@ -2,7 +2,6 @@ package com.techlabs.account;
 
 import java.io.Serializable;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 
 public class Account implements Serializable {
 	private String accno;;
