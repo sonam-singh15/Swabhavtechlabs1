@@ -1,23 +1,30 @@
 package com.techlab.dogsimulator;
 
+import com.techlab.dog.BarkRecognizer;
 import com.techlab.dog.Dog;
 import com.techlab.dog.Remote;
 
 public class DogSimulator {
 	public static void main(String[] args) {
 		Dog door = new Dog();
+		BarkRecognizer bark = new BarkRecognizer(door);
 		Remote remote = new Remote();
-		System.out.println("Fido barks to outside");
-		remote.pressButton();
+
+		System.out.println("Fido starts barking");
+		bark.recognize("Woof");
 
 		System.out.println("fido has gone outside");
-		remote.pressButton();
 
 		System.out.println("fido all done");
-		remote.pressButton();
 
-		System.out.println("fido came inside");
-		remote.pressButton();
+		try {
+			Thread.currentThread().sleep(10000);
+		} catch (InterruptedException e) {
+		}
+		System.out.println("Fido starts barking");
+		bark.recognize("Woof");
+
+		System.out.println("fido back inside");
 	}
 
 }
