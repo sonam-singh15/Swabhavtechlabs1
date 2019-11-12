@@ -2,9 +2,18 @@ package com.techlab.dog;
 
 public class Dog {
 	private boolean open;
+	private String allowedbark;
 
 	public Dog() {
 		this.open = false;
+	}
+
+	public String getAllowedBark() {
+		return allowedbark;
+	}
+
+	public void setAllowedBark(String bark) {
+		this.allowedbark = bark;
 	}
 
 	public void open() {

@@ -7,11 +7,14 @@ import com.techlab.dog.Remote;
 public class DogSimulator {
 	public static void main(String[] args) {
 		Dog door = new Dog();
+		door.setAllowedBark("Woof");
+		System.out.println(door.getAllowedBark());
+
 		BarkRecognizer bark = new BarkRecognizer(door);
 		Remote remote = new Remote();
 
 		System.out.println("Fido starts barking");
-		bark.recognize("Woof");
+		bark.recognize("oof");
 
 		System.out.println("fido has gone outside");
 
