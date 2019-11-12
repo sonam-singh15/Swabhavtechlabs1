@@ -8,11 +8,11 @@ public class BarkRecognizer {
 	}
 
 	public void recognize(String bark) {
-		System.out.println("Barkrecognizer" + bark);
+		System.out.println("Barkrecognizer :- " + bark);
 		if (door.getAllowedBark().equals(bark))
 			door.open();
 		else
-			System.out.println("This dog is" + "not aloowed");
+			System.out.println("This dog is" + " not allowed");
 	}
 
 }

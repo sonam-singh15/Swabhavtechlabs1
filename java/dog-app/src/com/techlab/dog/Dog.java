@@ -1,5 +1,8 @@
 package com.techlab.dog;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Dog {
 	private boolean open;
 	private String allowedbark;
@@ -17,12 +20,23 @@ public class Dog {
 	}
 
 	public void open() {
-		System.out.println("Door is open");
+		System.out.println("Door is open....");
 		open = true;
+
+		final Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+
+			@Override
+			public void run() {
+				close();
+				timer.cancel();
+
+			}
+		}, 5000);
 	}
 
 	public void close() {
-		System.out.println("Door is close");
+		System.out.println("Door is close.....");
 		open = false;
 	}
 

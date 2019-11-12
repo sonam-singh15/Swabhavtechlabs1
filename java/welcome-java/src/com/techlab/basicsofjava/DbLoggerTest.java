@@ -12,7 +12,7 @@ public class DbLoggerTest {
 		String f3 = args[0];
 
 		try {
-			FileInputStream fstream = new FileInputStream("C:\\\\Users\\\\Swabhav\\\\Desktop\\\\db_app.log");
+			FileInputStream fstream = new FileInputStream("C:\\Users\\Admin\\Desktop\\db_app.log");
 			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 			String strLine;
 			strLine = br.readLine();
