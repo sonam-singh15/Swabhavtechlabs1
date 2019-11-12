@@ -5,7 +5,7 @@ import com.techlab.person.Person;
 
 public class PersonTest {
 	public static void main(String[] args) {
-		Person p = new Person("Sonam", GenderOption.FEMALE, 24, 48,5.4,5,4);
+		Person p = new Person("Sonam", GenderOption.FEMALE, 24, 48, 5.4, 5, 4);
 
 		p.eat();
 		p.workout();

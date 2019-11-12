@@ -10,6 +10,7 @@ public class RectangleTestPrintInfo {
 		r1.setcolor("ReD");
 		printInfo(r1);
 
+		System.out.println(" ");
 		Rectangle r2 = new Rectangle();
 		r2.setheight(100);
 		r2.setwidth(5);
