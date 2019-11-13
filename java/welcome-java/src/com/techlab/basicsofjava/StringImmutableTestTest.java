@@ -13,7 +13,7 @@ public class StringImmutableTestTest {
 
 	@Test
 	public void testHashCode() {
-		assertArrayEquals("success", "ABC", "ABCD");
+		
 
 	}
 

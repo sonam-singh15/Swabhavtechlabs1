@@ -16,8 +16,8 @@ public class GuitarTest {
 		Inventory inventory = new Inventory();
 		initializeInventory(inventory);
 
-		GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.SITKA,
-				Wood.SITKA);
+		GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.CEDAR,
+				Wood.CEDAR);
 		List matchingGuitars = inventory.search(whatErinLikes);
 		if (!matchingGuitars.isEmpty()) {
 			System.out.println("Sonam, you might like these guitars:");
@@ -25,7 +25,7 @@ public class GuitarTest {
 				Guitar guitars = (Guitar) i.next();
 				GuitarSpec specs = guitars.getSpec();
 				System.out.println("  We have a " + specs.getBuilder() + " " + specs.getModel() + " " + specs.getType()
-						+ " guitar:\n     " + specs.getTopWood() + " back and sides,\n     " + specs.getTopWood()
+						+ " guitar:\n     " + specs.getTopWood() + " back and sides,\n     " + specs.getBackWood()
 						+ " top.\n  You can have it for only " + guitars.getPrice() + "\n  ----");
 			}
 		} else {
@@ -35,9 +35,9 @@ public class GuitarTest {
 
 	private static void initializeInventory(Inventory inventory) {
 		inventory.addGuitar("11277", 3999.95, Builder.COLLINGS, "D-18", Type.ACOUSTIC, Wood.INDIAN_ROSEWOOD,
-				Wood.SITKA);
-		inventory.addGuitar("V95693", 1499.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.SITKA, Wood.SITKA);
-		inventory.addGuitar("V9512", 1549.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.SITKA, Wood.SITKA);
-		inventory.addGuitar("122784", 5495.95, Builder.OLSON, "D-18", Type.ACOUSTIC, Wood.MAHOGANY, Wood.ADIRONDACK);
+				Wood.BRAZILIAN_ROSEWOOD);
+		inventory.addGuitar("V95693", 1499.95, Builder.COLLINGS, "Stratocastor", Type.ELECTRIC, Wood.CEDAR, Wood.CEDAR);
+		inventory.addGuitar("V9512", 1549.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.CEDAR, Wood.CEDAR);
+		inventory.addGuitar("122784", 5495.95, Builder.OLSON, "D-18", Type.ACOUSTIC, Wood.MAHOGANY, Wood.MAHOGANY);
 	}
 }
