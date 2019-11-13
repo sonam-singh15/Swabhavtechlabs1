@@ -1,31 +1,21 @@
 package com.techlab.guitartest;
 
-import com.techlab.guitar.Guitar;
 import com.techlab.guitar.Inventory;
-import com.techlab.guitar.Guitar.Builder;
+import com.techlab.guitar.Builder;
 import com.techlab.guitar.Guitar.Type;
 import com.techlab.guitar.Guitar.Wood;
 
 public class GuitarTest {
 	public static void main(String[] args) {
+		Inventory inventory = new Inventory();
+		initializeInventory(inventory);
 
-		Inventory inventories = new Inventory();
+	}
 
-		Guitar guitars = new Guitar("A101", 450.6, Builder.COLLINGS, "Bplus", Type.ACOUSTIC, Wood.AUSTRALIAN_REDWOOD,
+	private static void initializeInventory(Inventory inventory) {
+		inventory.addGuitar("11277", 3999.95, Builder.COLLINGS, "CJ", Type.ACOUSTIC, Wood.INDIAN_ROSEWOOD,
 				Wood.BRAZILLIAN_REDWOOD);
-
-		Guitar guitar = inventories.search(guitars);
-		printGuitarinfo(guitars);
-
+		inventory.addGuitar("V95693", 1499.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.AUSTRALIAN_REDWOOD,
+				Wood.BRAZILLIAN_REDWOOD);
 	}
-
-	public static void printGuitarinfo(Guitar g) {
-		System.out.println("seraialno:- " + g.getSerialno());
-		System.out.println("price:- " + g.getPrice());
-		System.out.println("model :- " + g.getModel());
-		System.out.println("type:- " + g.getType());
-		System.out.println("topwood:- " + g.getTopWood());
-		System.out.println("backwood:- " + g.getBackWood());
-	}
-
 }

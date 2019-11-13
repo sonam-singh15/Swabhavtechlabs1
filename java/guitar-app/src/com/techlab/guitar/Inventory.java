@@ -1,23 +1,22 @@
 package com.techlab.guitar;
 
 import java.util.Iterator;
+
 import java.util.LinkedList;
 import java.util.List;
-
-import com.techlab.guitar.Guitar.Builder;
 import com.techlab.guitar.Guitar.Type;
 import com.techlab.guitar.Guitar.Wood;
 
 public class Inventory {
-	private List guitars;
+	private List<Guitar> guitars;
 
 	public Inventory() {
 		guitars = new LinkedList();
 	}
 
-	public Inventory(String serialno, double price, Builder builder, String model, Type type, Wood topwood,
-			Wood backwood) {
-		Guitar guitar = new Guitar(serialno, price, builder, model, type, topwood, backwood);
+	public void addGuitar(String serialNumber, double price, Builder builder, String model, Type type, Wood backWood,
+			Wood topWood) {
+		Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
 		guitars.add(guitar);
 	}
 

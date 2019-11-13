@@ -5,17 +5,17 @@ import java.util.TimerTask;
 
 public class Dog {
 	private boolean open;
-	private String allowedbark;
+	private Bark allowedbark;
 
 	public Dog() {
 		this.open = false;
 	}
 
-	public String getAllowedBark() {
+	public Bark getAllowedBark() {
 		return allowedbark;
 	}
 
-	public void setAllowedBark(String bark) {
+	public void setAllowedBark(Bark bark) {
 		this.allowedbark = bark;
 	}
 
@@ -32,7 +32,7 @@ public class Dog {
 				timer.cancel();
 
 			}
-		}, 5000);
+		}, 3000);
 	}
 
 	public void close() {

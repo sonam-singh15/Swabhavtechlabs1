@@ -4,7 +4,7 @@ public class Remote {
 
 	private Dog door;
 
-	public Remote() {
+	public Remote(Dog door) {
 		this.door = door;
 	}
 

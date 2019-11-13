@@ -8,10 +8,8 @@ public class Guitar {
 	private Type type;
 	private Builder builder;
 	private double price;
+	GuitarSpec spec;
 
-	public enum Builder {
-		FENDER, MARTIN, GIBSON, COLLINGS, PRS;
-	}
 
 	public String toString() {
 		switch (getType()) {
@@ -79,6 +77,10 @@ public class Guitar {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public GuitarSpec getSpec() {
+		return spec;
 	}
 
 }
