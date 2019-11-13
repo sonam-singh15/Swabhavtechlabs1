@@ -1,4 +1,4 @@
- package com.techlab.guitar;
+package com.techlab.guitar;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -27,21 +27,21 @@ public class Inventory {
 		return null;
 	}
 
-	public List<Guitar> search(GuitarSpec searchSpec) {
+	public List<Guitar> search(GuitarSpec whatErinLikes) {
 		List<Guitar> matchingGuitars = new LinkedList<Guitar>();
 		for (Iterator<Guitar> i = guitars.iterator(); i.hasNext();) {
 			Guitar guitar = (Guitar) i.next();
 			GuitarSpec guitarSpec = guitar.getSpec();
-			if (searchSpec.getBuilder() != guitarSpec.getBuilder())
+			if (whatErinLikes.getBuilder() != guitarSpec.getBuilder())
 				continue;
-			String model = searchSpec.getModel().toLowerCase();
+			String model = whatErinLikes.getModel().toLowerCase();
 			if ((model != null) && (!model.equals("")) && (!model.equals(guitarSpec.getModel().toLowerCase())))
 				continue;
-			if (searchSpec.getType() != guitarSpec.getType())
+			if (whatErinLikes.getType() != guitarSpec.getType())
 				continue;
-			if (searchSpec.getBackWood() != guitarSpec.getBackWood())
+			if (whatErinLikes.getBackWood() != guitarSpec.getBackWood())
 				continue;
-			if (searchSpec.getTopWood() != guitarSpec.getTopWood())
+			if (whatErinLikes.getTopWood() != guitarSpec.getTopWood())
 				continue;
 			matchingGuitars.add(guitar);
 		}
