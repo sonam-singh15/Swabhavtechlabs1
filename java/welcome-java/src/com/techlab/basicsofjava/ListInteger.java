@@ -23,7 +23,6 @@ public class ListInteger {
 
 		System.out.println("Deletion");
 		arr.remove(1);
-		printAL(arr);
 
 		System.out.println("Updation made in arraylist");
 		arr.set(1, 28);
