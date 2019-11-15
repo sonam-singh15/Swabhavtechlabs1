@@ -1,4 +1,4 @@
-package com.techlab.soliddemo;
+package com.techlab.lskov;
 
 public class MallardDuck extends Bird {
 

@@ -1,4 +1,4 @@
-package com.techlab.soliddemo;
+package com.techlab.lskov;
 
 import java.util.ArrayList;
 import java.util.Arrays;

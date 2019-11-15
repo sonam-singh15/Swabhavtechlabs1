@@ -1,4 +1,4 @@
-package com.techlab.soliddemo;
+package com.techlab.lskov;
 
 public class Eagle extends Bird {
 

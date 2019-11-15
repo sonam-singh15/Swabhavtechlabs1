@@ -1,21 +1,10 @@
-package com.techlab.soliddemo;
+package com.techlab.lskov;
 
 public abstract class Bird {
 	private String name;
 	private String location;
 	private int flightDistance;
 	private boolean flyable = true;
-
-	public interface Flyable {
-		public void fly();
-	}
-
-	public class Eagle extends Bird implements Flyable {
-		@Override
-		public void fly() {
-			System.out.println("I'm flying high, across the mountain !");
-		}
-	}
 
 	public boolean getFlyable() {
 		return flyable;
