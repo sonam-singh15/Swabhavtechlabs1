@@ -12,6 +12,7 @@ public class Bark {
 		return sound;
 	}
 
+	@Override
 	public boolean equals(Object bark) {
 		if (bark instanceof Bark) {
 			Bark otherBark = (Bark) bark;
