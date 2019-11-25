@@ -19,6 +19,7 @@ public class RectangleTest {
 		big.setheight(700);
 		big.setwidth(500);
 		
+		
 		System.out.println("height " + big.getHeight());
 		System.out.println("width " + big.getwidth());
 		System.out.println("area of big rectangle" + big.calculateArea());
