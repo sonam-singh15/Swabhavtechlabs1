@@ -6,8 +6,8 @@ import com.techlab.account.test.SavingAccount;
 
 public class AccountTest {
 	public static void main(String[] args) {
-		SavingAccount account1 = new SavingAccount(1045, "Sonam", 400);
-		account1.deposit(100);
+		SavingAccount account1 = new SavingAccount(1045, "Sonam", 4000);
+		account1.deposit(0);
 		account1.withdraw(100);
 		System.out.println("Saving account details:- ");
 		printInfo(account1);
