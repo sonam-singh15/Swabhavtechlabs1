@@ -6,7 +6,7 @@ public class HashsetTest {
 	public static void main(String[] args) {
 		HashSet<String> names = new HashSet<String>();
 
-		names.add("sonam");
+		names.add("lisha");
 		names.add("anjali");
 		names.add("sarita");
 		names.add("sakshi");
@@ -17,6 +17,7 @@ public class HashsetTest {
 		}
 
 		System.out.println();
+		//names.add("sakshi");//accepts unique values
 
 		// update
 		names.remove("anjali");

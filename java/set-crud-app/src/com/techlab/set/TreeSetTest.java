@@ -15,6 +15,7 @@ public class TreeSetTest {
 			System.out.println(elem);
 		}
 
+		names.add("sakshi");// accepts unique value
 		System.out.println();
 
 		names.remove("sakshi");
