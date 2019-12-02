@@ -17,11 +17,10 @@ public class LineItemTest {
 		double checkout = 0;
 		double total = 0;
 
-		for (Object elem : cart) {
-			LineItem item = (LineItem) elem;
-			checkout = (item.getunitprice() * item.getquantity());
+		for (LineItem elem : cart) {
+			checkout = (elem.getunitprice() * elem.getquantity());
 			total = total + checkout;
-			System.out.println(checkout);
+			System.out.println("price of product :" + checkout);
 
 		}
 
