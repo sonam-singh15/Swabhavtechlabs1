@@ -37,7 +37,7 @@ public class Account {
 		if ((balance - amt) >= 500) {
 			balance = balance - amt;
 		} else {
-			throw new RuntimeException("No funds remaining");
+			throw new InsufficiantFundException(this);
 		}
 	}
 

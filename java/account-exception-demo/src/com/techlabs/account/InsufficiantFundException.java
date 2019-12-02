@@ -1,8 +1,7 @@
-package com.techlab.exception;
-
+package com.techlabs.account;
 
 public class InsufficiantFundException extends RuntimeException {
-	public Account acc;
+	private Account acc;
 
 	public InsufficiantFundException(Account acc) {
 		this.acc = acc;

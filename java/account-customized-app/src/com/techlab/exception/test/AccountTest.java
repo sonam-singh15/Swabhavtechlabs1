@@ -9,11 +9,12 @@ public class AccountTest {
 		Account a = new Account("101", "sonam", 5000);
 		try {
 			a.withdraw(4501);
+			printInfo(a);
 
 		} catch (InsufficiantFundException e) {
 			System.out.println(e.getMessage());
 		}
-		printInfo(a);
+
 	}
 
 	public static void printInfo(Account a) {

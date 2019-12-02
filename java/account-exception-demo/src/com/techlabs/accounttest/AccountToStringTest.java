@@ -7,7 +7,7 @@ public class AccountToStringTest {
 
 		Account a = new Account("101", "sonam", 5000);
 		try {
-			a.withdraw(100);
+			a.withdraw(4501);
 		} catch (Exception e) {
 			System.out.println(e.getMessage()); // polymorphic behaviour
 		}
