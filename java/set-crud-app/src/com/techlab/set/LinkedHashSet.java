@@ -6,6 +6,7 @@ public class LinkedHashSet {
 	public static void main(String[] args) {
 
 		LinkedHashSet names = new LinkedHashSet();
+		names.a
 
 	}
 }
