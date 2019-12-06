@@ -8,6 +8,12 @@ public class Customer {
 	private String name;
 	private ArrayList<Order> orders;
 
+	public Customer(int id, String name) {
+		this.id = id;
+		this.name = name;
+		orders = new ArrayList<Order>();
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -16,9 +22,17 @@ public class Customer {
 		return name;
 	}
 
-	public void addItems() {
-		Order order = new Order(101, "12/3/2019");
-		orders.add(order);
+	public void addOrders(Order o1) {
+		orders.add(o1);
 	}
 
+	public void displayOrder() {
+		for (Order elem : orders) {
+			System.out
+					.println("[ Customer Id :-" + id + " Customer name: " + name + "]" + "  \n[ Order details are:-\n "
+							+ " Order id: " + elem.getId() + ", " + "  Order date:-" + elem.getdate() + "]");
+
+		}
+
+	}
 }

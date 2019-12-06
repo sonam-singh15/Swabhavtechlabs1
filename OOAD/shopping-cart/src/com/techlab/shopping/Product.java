@@ -5,6 +5,7 @@ public class Product {
 	private String name;
 	private double cost;
 	private float discount;
+	private double itemCostWithDiscount;
 
 	public Product(int id, String name, double cost, float discount) {
 		this.id = id;
@@ -29,10 +30,15 @@ public class Product {
 		return discount;
 	}
 
-	public double calculateFinalAmount() {
-		double totalcost;
-		totalcost = cost * discount;
-		return totalcost;
+	public double getTotalCost() {
+		return itemCostWithDiscount = cost * discount;
+
+	}
+
+	@Override
+	public String toString() {
+		return "Id" + id + "name" + name + "cost" + cost + "discount" + discount + "itemCostWithDiscount"
+				+ itemCostWithDiscount;
 
 	}
 
