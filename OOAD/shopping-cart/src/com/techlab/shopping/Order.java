@@ -33,7 +33,7 @@ public class Order implements Serializable {
 
 	public void store() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Swabhav\\Desktop\\customer.txt");
+			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Swabhav\\Desktop\\Customer.txt");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(items);
 			out.close();
@@ -41,6 +41,23 @@ public class Order implements Serializable {
 			System.out.printf("Serialized data is saved \n ");
 		} catch (IOException i) {
 			i.printStackTrace();
+		}
+	}
+
+	public void retrive() throws ClassNotFoundException {
+		try {
+			FileInputStream fileIn = new FileInputStream("C:\\Users\\Swabhav\\Desktop\\example.txt");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			items = (ArrayList<LineItem>) in.readObject();
+			in.close();
+			fileIn.close();
+		} catch (IOException i) {
+			i.printStackTrace();
+			return;
+		}
+		System.out.println("Deserialized Mobile information...");
+		for (LineItem tmp : items) {
+			System.out.println(tmp);
 		}
 	}
 
