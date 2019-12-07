@@ -1,22 +1,19 @@
 package com.techlab.shopping;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order implements Serializable {
+public class Order {
 	private int id;
 	private String date;
-	private ArrayList<LineItem> items;
+	private ArrayList<LineItem> cartItems;
 
 	public Order(int id, String date) {
 		this.id = id;
 		this.date = date;
-		items = new ArrayList<LineItem>();
+		cartItems = new ArrayList<LineItem>();
 	}
 
 	public int getId() {
@@ -28,42 +25,15 @@ public class Order implements Serializable {
 	}
 
 	public void addItems(LineItem lineitem) {
-		items.add(lineitem);
-	}
+		if (cartItems != null) {
+			cartItems.add(lineitem);
+		}
 
-	public void store() {
-		try {
-			FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Swabhav\\Desktop\\Customer.txt");
-			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(items);
-			out.close();
-			fileOut.close();
-			System.out.printf("Serialized data is saved \n ");
-		} catch (IOException i) {
-			i.printStackTrace();
-		}
-	}
-
-	public void retrive() throws ClassNotFoundException {
-		try {
-			FileInputStream fileIn = new FileInputStream("C:\\Users\\Swabhav\\Desktop\\example.txt");
-			ObjectInputStream in = new ObjectInputStream(fileIn);
-			items = (ArrayList<LineItem>) in.readObject();
-			in.close();
-			fileIn.close();
-		} catch (IOException i) {
-			i.printStackTrace();
-			return;
-		}
-		System.out.println("Deserialized Mobile information...");
-		for (LineItem tmp : items) {
-			System.out.println(tmp);
-		}
 	}
 
 	public double checkOut() {
 		double total = 0;
-		for (LineItem item : items) {
+		for (LineItem item : cartItems) {
 			double checkout = item.getItemCost() * item.getquantity();
 			total = total + checkout;
 		}
@@ -71,10 +41,41 @@ public class Order implements Serializable {
 	}
 
 	public void displayItem() {
-		System.out.println(items.size() + "items");
-		for (LineItem item : items) {
+		System.out.println(cartItems.size() + "items");
+		for (LineItem item : cartItems) {
 			System.out.println(item.toString());
 		}
+
 	}
 
+	public void writeIntofile(LineItem lineitem) throws IOException {
+		FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Swabhav\\Desktop\\demo.txt");
+		ObjectOutputStream out = new ObjectOutputStream(fileOut);
+		out.writeObject(lineitem);
+		out.close();
+		fileOut.close();
+
+	}
+
+	public void modifyItem(LineItem lineitem) {
+		boolean itemFound = false;
+		if (cartItems != null) {
+			for (LineItem item1 : cartItems) {
+				if (item1.getName().equals(item1.getName())) {
+					itemFound = true;
+
+					if (item1.getquantity() != 0) {
+						lineitem.setItemQuantity(item1.getquantity() + lineitem.getquantity());
+					}
+				}
+				// System.out.println(lineitem.getquantity());
+			}
+
+			if (itemFound != true) {
+				System.out.println("Item not found in cart. Nothing modified");
+			}
+
+		}
+
+	}
 }

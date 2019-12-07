@@ -1,4 +1,4 @@
-package com.techlab.dog;
+                                                                                                                                                      package com.techlab.dog;
 
 public class BarkRecognizer {
 	private Dog door;

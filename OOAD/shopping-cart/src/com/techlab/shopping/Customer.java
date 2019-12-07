@@ -23,7 +23,10 @@ public class Customer {
 	}
 
 	public void addOrders(Order o1) {
-		orders.add(o1);
+		if (orders != null) {
+			orders.add(o1);
+		}
+
 	}
 
 	public void displayOrder() {

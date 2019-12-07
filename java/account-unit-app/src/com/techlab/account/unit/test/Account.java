@@ -1,4 +1,4 @@
-package com.techlabs.account;
+package com.techlab.account.unit.test;
 
 import javax.naming.InsufficientResourcesException;
 
@@ -31,15 +31,15 @@ public class Account {
 		return balance;
 	}
 
-	public void deposit(double amt) {
-		balance = (int) (balance + amt);
+	public double deposit(double amt) {
+		return balance = (int) (balance + amt);
 	}
 
 	public double withdraw(int amt) {
 		if ((balance - amt) >= 500) {
 			balance = balance - amt;
 		} else {
-			System.out.println("Dont have sufficiant balance");
+			System.out.println();
 		}
 		return balance;
 	}

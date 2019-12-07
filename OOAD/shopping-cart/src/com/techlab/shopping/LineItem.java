@@ -1,8 +1,6 @@
 package com.techlab.shopping;
 
-import java.io.Serializable;
-
-public class LineItem implements Serializable {
+public class LineItem {
 	private int id;
 	private int quantity;
 	private String name;
@@ -36,9 +34,14 @@ public class LineItem implements Serializable {
 		return product;
 	}
 
+	public void setItemQuantity(int getquantity) {
+		this.quantity = getquantity;
+	}
+
 	@Override
 	public String toString() {
 		return "[ Id :- " + id + " name:- " + name + " quantity:- " + quantity + " Cost :-" + itemcost + "]";
 
 	}
+
 }
