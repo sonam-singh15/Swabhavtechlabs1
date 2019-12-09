@@ -3,15 +3,12 @@ package com.techlab.shopping;
 public class LineItem {
 	private int id;
 	private int quantity;
-	private String name;
 	private Product product;
-	private double itemcost;
 
-	public LineItem(int id, String ProductName, int quantity, double unitprice) {
+	public LineItem(int id, int quantity, Product product) {
 		this.id = id;
-		this.name = ProductName;
 		this.quantity = quantity;
-		itemcost = quantity * unitprice;
+		this.product = product;
 	}
 
 	public int getId() {
@@ -22,16 +19,14 @@ public class LineItem {
 		return quantity;
 	}
 
-	public double getItemCost() {
-		return itemcost;
-	}
-
-	public String getName() {
-		return name;
-	}
-
 	public Product getProduct() {
 		return product;
+	}
+
+	public double calculateItemCost() {
+		double itemcost;
+		itemcost = product.getTotalCost() * quantity;
+		return itemcost;
 	}
 
 	public void setItemQuantity(int getquantity) {
@@ -40,7 +35,8 @@ public class LineItem {
 
 	@Override
 	public String toString() {
-		return "[ Id :- " + id + " name:- " + name + " quantity:- " + quantity + " Cost :-" + itemcost + "]";
+		return "[ Id :- " + id + "  quantity:- " + quantity + "product id" + product.getId() + "product name"
+				+ product.getName() + "product cost" + product.getTotalCost() + "]";
 
 	}
 
