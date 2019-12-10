@@ -29,8 +29,8 @@ public class FooTest {
 				}
 			}
 		}
-		System.out.println("Passed" + passedCount);
-		System.out.println("failed" + failedCount);
-		System.out.println("Passed test cases" + nooftestcases);
+		System.out.println("Passed:- " + passedCount);
+		System.out.println("failed:- " + failedCount);
+		System.out.println("Total test cases: -" + nooftestcases);
 	}
 }
