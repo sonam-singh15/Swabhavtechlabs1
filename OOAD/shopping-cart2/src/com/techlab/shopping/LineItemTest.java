@@ -13,16 +13,18 @@ class LineItemTest {
 		Product pro = new Product(101, "shoes", 1000, 0.25);
 		// Act
 		LineItem item = new LineItem(101, 3, new Product(101, "shoes", 1000, 0.25));
+
+		int expectedproductid = pro.getId();
 		// Assert
 		assertEquals(expectedid, item.getId());
 		assertEquals(expectedquantity, item.getquantity());
-		assertEquals(pro, item.getProduct());
+		assertEquals(expectedid, expectedproductid);
 
 	}
 
 	@Test
 	void testCalculateItemCost() {
-		double expectedcost = 750;
+		double expectedcost = 3750;
 
 		LineItem item = new LineItem(10, 3, new Product(101, "shoes", 1000, 0.25));
 		double actualtotalcost = item.calculateItemCost();

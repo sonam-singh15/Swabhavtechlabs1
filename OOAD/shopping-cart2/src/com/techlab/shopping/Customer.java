@@ -1,6 +1,7 @@
 package com.techlab.shopping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
 
@@ -16,6 +17,10 @@ public class Customer {
 
 	public int getId() {
 		return id;
+	}
+
+	public List<Order> getOrders() {
+		return this.orders;
 	}
 
 	public String getName() {

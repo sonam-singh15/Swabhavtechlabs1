@@ -1,9 +1,7 @@
 package com.techlab.shopping;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
 	private int id;
@@ -24,25 +22,23 @@ public class Order {
 		return date;
 	}
 
+	public List<LineItem> getItem() {
+		return this.cartItems;
+	}
+
 	public void addItems(LineItem lineitem) {
-		boolean itemFound = false;
-		if (cartItems != null) {
-			for (LineItem item1 : cartItems) {
-				if (item1.getId() == lineitem.getId()) {
-					itemFound = true;
-
-					if (item1.getquantity() != 0) {
-						lineitem.setItemQuantity(item1.getquantity() + lineitem.getquantity());
-					}
-				}
+		for (LineItem item1 : cartItems) {
+			if (item1.getId() == lineitem.getId()) {
+				lineitem.setItemQuantity(item1.getquantity() + lineitem.getquantity());
+				// cartItems.remove(item1);
 			}
-
-			cartItems.add(lineitem);
 		}
+
+		cartItems.add(lineitem);
 	}
 
 	public double checkOut() {
-		double total = 0;
+		double total = 0.0;
 		for (LineItem item : cartItems) {
 			double checkout = item.calculateItemCost();
 			total = total + checkout;
@@ -58,15 +54,4 @@ public class Order {
 
 	}
 
-	public void writeIntofile(LineItem lineitem) throws IOException {
-		FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Swabhav\\Desktop\\demo.txt");
-		ObjectOutputStream out = new ObjectOutputStream(fileOut);
-		out.writeObject(lineitem);
-		out.close();
-		fileOut.close();
-
-	}
-
-	
-
-	}
+}

@@ -25,11 +25,11 @@ class ProductTest {
 
 	@Test
 	void testGetTotalCost() {
-		double expectedcost = 250;
+		double expectedcost = 1250;
 
 		Product pro = new Product(10, "shoes", 1000, 0.25);
 
-		assertEquals(expectedcost, pro.getTotalCost());
+		assertEquals(expectedcost, pro.calculateTotalCost());
 	}
 
 }

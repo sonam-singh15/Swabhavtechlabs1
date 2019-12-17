@@ -25,7 +25,7 @@ public class LineItem {
 
 	public double calculateItemCost() {
 		double itemcost;
-		itemcost = product.getTotalCost() * quantity;
+		itemcost = product.calculateTotalCost() * quantity;
 		return itemcost;
 	}
 
@@ -36,7 +36,7 @@ public class LineItem {
 	@Override
 	public String toString() {
 		return "[ Id :- " + id + "  quantity:- " + quantity + " product id:- " + product.getId() + " product name:- "
-				+ product.getName() + " product cost :- " + product.getTotalCost() + "]";
+				+ product.getName() + " product cost :- " + product.calculateTotalCost() + "]";
 
 	}
 

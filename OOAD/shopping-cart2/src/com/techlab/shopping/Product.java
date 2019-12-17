@@ -30,8 +30,8 @@ public class Product {
 		return discount;
 	}
 
-	public double getTotalCost() {
-		return itemCostWithDiscount = cost * discount;
+	public double calculateTotalCost() {
+		return itemCostWithDiscount = cost + (cost * discount);
 
 	}
 
