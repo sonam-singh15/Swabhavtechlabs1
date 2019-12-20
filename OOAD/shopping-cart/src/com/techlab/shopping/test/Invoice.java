@@ -1,10 +1,9 @@
 package com.techlab.shopping.test;
 
-import java.io.FileOutputStream;
-
 import com.techlab.shopping.Customer;
 import com.techlab.shopping.LineItem;
 import com.techlab.shopping.Order;
+import com.techlab.shopping.Product;
 
 public class Invoice {
 	public static void main(String[] args) {
@@ -21,13 +20,13 @@ public class Invoice {
 		c1.displayOrder();
 
 		Order o1 = new Order(01, "12/3/2017");
-		o1.addItems(new LineItem(101, "Shoes", 2, 300));
-		o1.addItems(new LineItem(102, "Bag", 2, 1000));
-		o1.modifyItem(new LineItem(102, "Bag", 3, 600));
-		o1.displayItem();
+		o1.addItems(new LineItem(101, 2, new Product(11, "shoes", 600, 0.25f)));
+		o1.addItems(new LineItem(101, 3, new Product(11, "shoes", 600, 0.25f)));
+		o1.addItems(new LineItem(102, 4, new Product(12, "bags", 600, 0.25f)));
 
+
+		o1.displayItem();
 		System.out.println("Checkout details of order1:" + o1.checkOut());
 	}
 
-	
 }

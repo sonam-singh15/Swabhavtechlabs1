@@ -25,16 +25,26 @@ public class Order {
 	}
 
 	public void addItems(LineItem lineitem) {
+		boolean itemFound = false;
 		if (cartItems != null) {
+			for (LineItem item1 : cartItems) {
+				if (item1.getId() == lineitem.getId()) {
+					itemFound = true;
+
+					if (item1.getquantity() != 0) {
+						lineitem.setItemQuantity(item1.getquantity() + lineitem.getquantity());
+					}
+				}
+			}
+
 			cartItems.add(lineitem);
 		}
-
 	}
 
 	public double checkOut() {
 		double total = 0;
 		for (LineItem item : cartItems) {
-			double checkout = item.getItemCost() * item.getquantity();
+			double checkout = item.calculateItemCost();
 			total = total + checkout;
 		}
 		return total;
@@ -57,25 +67,6 @@ public class Order {
 
 	}
 
-	public void modifyItem(LineItem lineitem) {
-		boolean itemFound = false;
-		if (cartItems != null) {
-			for (LineItem item1 : cartItems) {
-				if (item1.getName().equals(item1.getName())) {
-					itemFound = true;
-
-					if (item1.getquantity() != 0) {
-						lineitem.setItemQuantity(item1.getquantity() + lineitem.getquantity());
-					}
-				}
-				// System.out.println(lineitem.getquantity());
-			}
-
-			if (itemFound != true) {
-				System.out.println("Item not found in cart. Nothing modified");
-			}
-
-		}
+	
 
 	}
-}
