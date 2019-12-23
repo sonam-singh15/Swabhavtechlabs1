@@ -2,6 +2,6 @@ package com.techlab.ttt;
 
 public enum Result {
 
-	WIN, DRAW, INPROGRESS
+	WIN, DRAW, INPROGRESS, INVALID
 
 }
