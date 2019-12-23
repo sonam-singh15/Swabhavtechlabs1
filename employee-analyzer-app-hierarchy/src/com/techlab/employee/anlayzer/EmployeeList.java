@@ -22,7 +22,7 @@ public class EmployeeList implements IParseAdable {
 	static int counter = 0;
 
 	@Override
-	public boolean add(Object... objects) {
+	public boolean add(Object objects) {
 		Employee emp = EmployeeParser.newEmployee((String[]) objects);
 		if (emp != null) {
 			this.employees.add(emp);
