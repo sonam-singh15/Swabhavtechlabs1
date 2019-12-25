@@ -1,86 +1,99 @@
 package com.techlab.ttt;
 
 public class ResultAnalyzer {
-
 	private Board board;
+	private static int SIZE_OF_BOARD = 9;
 
 	public ResultAnalyzer(Board board) {
 		this.board = board;
 	}
 
-	public Result checkBoard(Mark type, int cellId) {
-		if (checkRows(type, cellId))
-			return Result.WIN;
-		if (checkColumns(type, cellId))
-			return Result.WIN;
-		if (checkDiagonal(type, cellId))
-			return Result.WIN;
-		if (checkReverseDiagonal(type, cellId))
-			return Result.WIN;
-		if (isBoardFilled())
-			return Result.DRAW;
-		return Result.INPROGRESS;
-	}
-
-	private boolean checkRows(Mark mark, int cellId) {
-		if (mark == Mark.EMPTY)
-			return false;
-		int size = board.getSize();
-		Cell[] cells = board.getGrid();
-		int offset = (cellId / size) * size;
-		for (int i = offset; i < offset + size; i++)
-			if (cells[i].getMark() != mark)
-				return false;
-		return true;
-	}
-
-	private boolean checkColumns(Mark mark, int cellId) {
-		if (mark == Mark.EMPTY)
-			return false;
-		int size = board.getSize();
-		Cell[] cells = board.getGrid();
-		int offset = (cellId % size);
-		for (int i = 0; i < size; i++)
-			if (cells[(i * size) + offset].getMark() != mark)
-				return false;
-		return true;
-	}
-
-	private boolean checkDiagonal(Mark mark, int cellId) {
-		if (mark == Mark.EMPTY)
-			return false;
-		int size = board.getSize();
-		if (cellId / size != cellId % size)
-			return false;
-		Cell[] cells = board.getGrid();
-		for (int i = 0; i < size; i++)
-			if (cells[i * size + i].getMark() != mark)
-				return false;
-		return true;
-	}
-
-	private boolean checkReverseDiagonal(Mark mark, int cellId) {
-		if (mark == Mark.EMPTY)
-			return false;
-		int size = board.getSize();
-		int row = cellId / size;
-		int column = cellId % size;
-		if (row != (size - 1 - column))
-			return false;
-		Cell[] cells = board.getGrid();
-		for (int i = 0; i < size; i++) {
-			int index = (i * size) + (size - 1 - i);
-			if (cells[index].getMark() != mark)
-				return false;
+	// Check for win.....
+	public boolean checkForWin() {
+		if (checkRowForMark(Mark.O)) {
+			return true;
 		}
-		return true;
+		if (checkRowForMark(Mark.X)) {
+			return true;
+		}
+		if (checkColumnForMark(Mark.O)) {
+			return true;
+		}
+		if (checkColumnForMark(Mark.X)) {
+			return true;
+		}
+		if (checkDiagonalForMark(Mark.O)) {
+			return true;
+		}
+		if (checkDiagonalForMark(Mark.X)) {
+			return true;
+		}
+		return false;
 	}
 
-	private boolean isBoardFilled() {
-		Cell[] cells = board.getGrid();
-		for (int i = 0; i < cells.length; i++)
-			if (cells[i].isEmpty())
-				return false;
-		return true;
+	private boolean checkRowForMark(Mark mark) {
+		if (board.getMarkOnCell(0) == mark && board.getMarkOnCell(1) == mark && board.getMarkOnCell(2) == mark) {
+			return true;
+		}
+		if (board.getMarkOnCell(3) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(5) == mark) {
+			return true;
+		}
+		if (board.getMarkOnCell(6) == mark && board.getMarkOnCell(7) == mark && board.getMarkOnCell(8) == mark) {
+			return true;
+		}
+		return false;
 	}
+
+	private boolean checkColumnForMark(Mark mark) {
+		if (board.getMarkOnCell(0) == mark && board.getMarkOnCell(3) == mark && board.getMarkOnCell(6) == mark) {
+			return true;
+		}
+		if (board.getMarkOnCell(1) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(7) == mark) {
+			return true;
+		}
+		if (board.getMarkOnCell(2) == mark && board.getMarkOnCell(5) == mark && board.getMarkOnCell(8) == mark) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean checkDiagonalForMark(Mark mark) {
+		if (board.getMarkOnCell(0) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(8) == mark) {
+			return true;
+		}
+		if (board.getMarkOnCell(2) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(6) == mark) {
+			return true;
+		}
+		return false;
+	}
+
+	// CheckForDraw
+	public boolean checkForDraw() {
+		if (IsBoardFillOut()) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean IsBoardFillOut() {
+		if ((board.getMarkOnCell(0) == Mark.O) | (board.getMarkOnCell(0) == Mark.X)
+				&& (board.getMarkOnCell(1) == Mark.O) | (board.getMarkOnCell(1) == Mark.X)
+				&& (board.getMarkOnCell(2) == Mark.O) | (board.getMarkOnCell(2) == Mark.X)
+				&& (board.getMarkOnCell(3) == Mark.O) | (board.getMarkOnCell(3) == Mark.X)
+				&& (board.getMarkOnCell(4) == Mark.O) | (board.getMarkOnCell(4) == Mark.X)
+				&& (board.getMarkOnCell(5) == Mark.O) | (board.getMarkOnCell(5) == Mark.X)
+				&& (board.getMarkOnCell(6) == Mark.O) | (board.getMarkOnCell(6) == Mark.X)
+				&& (board.getMarkOnCell(7) == Mark.O) | (board.getMarkOnCell(7) == Mark.X)
+				&& (board.getMarkOnCell(8) == Mark.O) | (board.getMarkOnCell(8) == Mark.X))
+			return true;
+		return false;
+	}
+
+//	// display board
+//	public void displayBoard() {
+//		for(int index =0 ; index < SIZE_OF_BOARD ; index++) {
+//			System.out.println(board.getMarkOnCell(index));
+//		}
+//	}
+
 }

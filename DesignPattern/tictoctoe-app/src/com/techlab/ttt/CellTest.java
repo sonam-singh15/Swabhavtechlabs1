@@ -2,41 +2,43 @@ package com.techlab.ttt;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CellTest {
+public class CellTest {
 
 	@Test
-	void checkForEmptyCell() {
+	public void testForAnEmptyCell() {
 		Cell cell = new Cell();
-
-		Mark actual = cell.getMark();
-
 		Mark expected = Mark.EMPTY;
-
+		Mark actual = cell.getCellState();
 		assertEquals(expected, actual);
-
 	}
 
 	@Test
-	void checkForChangeInMark() throws NonEmptyCell {
+	public void testSetCellState() throws CellIsAlredyMarkedException {
 		Cell cell = new Cell();
-		Assertions.assertTrue(cell.isEmpty());
-
-		cell.setMark(Mark.CIRCLE);
-		Assertions.assertFalse(cell.isEmpty());
+		cell.setCellState(Mark.EMPTY);
+		Mark expected = Mark.EMPTY;
+		Mark actual = cell.getCellState();
+		assertEquals(expected, actual);
 	}
 
 	@Test
-	void checkForRepeatedMark() throws NonEmptyCell {
+	public void testSetCellState_XIsGiven_ResultShouldBEX() throws CellIsAlredyMarkedException {
 		Cell cell = new Cell();
-		cell.setMark(Mark.CIRCLE);
+		cell.setCellState(Mark.X);
+		Mark expected = Mark.X;
+		Mark actual = cell.getCellState();
+		assertEquals(expected, actual);
+	}
 
-		Assertions.assertThrows(NonEmptyCell.class, () -> {
-			cell.setMark(Mark.CIRCLE);
-		});
-
+	@Test
+	public void testSetCellState_OIsGiven_ResultShouldBEO() throws CellIsAlredyMarkedException {
+		Cell cell = new Cell();
+		cell.setCellState(Mark.O);
+		Mark expected = Mark.O;
+		Mark actual = cell.getCellState();
+		assertEquals(expected, actual);
 	}
 
 }

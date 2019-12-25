@@ -1,28 +1,28 @@
 package com.techlab.ttt;
 
 public class Board {
-	private Cell[] grid;
-	private int size;
+	private Cell[] cellsArray;
+	private static int NUMBER_OF_CELL = 9;
 
-	public Board(int size) {
-		this.size = size;
+	public Board() {
+		cellsArray = new Cell[NUMBER_OF_CELL];
+		for (int index = 0; index < NUMBER_OF_CELL; index++)
+			cellsArray[index] = new Cell();
 	}
 
-	private void generateGrid(int size) {
-		this.grid = new Cell[size * size];
-		for (int i = 0; i < grid.length; i++)
-			grid[i] = new Cell();
+	public void putMarkOnCell(Mark mark, int cellNumber) throws CellIsAlredyMarkedException {
+		cellsArray[cellNumber].setCellState(mark);
 	}
 
-	public int getSize() {
-		return this.size;
+	public Mark getMarkOnCell(int cellNumber) {
+		return cellsArray[cellNumber].getCellState();
 	}
 
-	public Cell[] getGrid() {
-		return this.grid;
+	public int getBoardSize() {
+		return cellsArray.length;
 	}
 
-	public void markCell(int cellId, Mark type) throws NonEmptyCell {
-		grid[cellId].setMark(type);
+	public Cell[] getCellsArray() {
+		return cellsArray;
 	}
 }

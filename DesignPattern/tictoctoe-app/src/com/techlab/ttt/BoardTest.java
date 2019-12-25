@@ -1,31 +1,47 @@
 package com.techlab.ttt;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {
 
-	private final int size = 3;
-
 	@Test
-	public void testSize() {
-		Board b = new Board(size);
-		Assertions.assertTrue(size == b.getSize());
+	public void testBoardConstructor_ShouldInitializeCellsArrayBy9Cell() {
+		Board board = new Board();
+		Cell[] cellArray = board.getCellsArray();
+		int expected = 9;
+		int actual = cellArray.length;
+		assertEquals(expected, actual);
 	}
 
 	@Test
-	public void testMark() throws NonEmptyCell {
-		Board b = new Board(3);
-		Cell[] c = b.getGrid();
-
-		b.markCell(0, Mark.CIRCLE);
-
-		Assertions.assertFalse(c[0].isEmpty());
-		b.markCell(1, Mark.CROSS);
-
-		Assertions.assertFalse(c[1].isEmpty());
-		Assertions.assertThrows(NonEmptyCell.class, () -> {
-			b.markCell(1, Mark.CIRCLE);
-		});
+	public void testPutMarkOnCell_MarkingCell0ByX_OnCell0ResultShouldBeX() throws CellIsAlredyMarkedException {
+		Board board = new Board();
+		int cellNumber = 0;
+		board.putMarkOnCell(Mark.X, cellNumber);
+		Mark expectedMark = Mark.X;
+		Mark actualMark = board.getMarkOnCell(cellNumber);
+		assertEquals(expectedMark, actualMark);
 	}
+
+	@Test
+	public void testPutMarkOnCell_tryingToRemarkCell0_ResultShouldBeThrowException()
+			throws CellIsAlredyMarkedException {
+		Board board = new Board();
+		board.putMarkOnCell(Mark.O, 0);
+		board.putMarkOnCell(Mark.X, 0);
+	}
+
+	@Test
+	public void testGameConstructor_RunningConstructor_BoardShouldBeInitializedWithEmptyCell() {
+		Board board = new Board();
+		Mark expected = Mark.EMPTY;
+		for (int index = 0; index < board.getBoardSize(); index++) {
+			Mark actual = board.getMarkOnCell(index);
+			System.out.println("board:-" + actual);
+			assertEquals(expected, actual);
+		}
+	}
+
 }

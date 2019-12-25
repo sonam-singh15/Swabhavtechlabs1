@@ -1,38 +1,53 @@
 package com.techlab.ttt;
 
 public class Game {
+
 	private Board board;
-	private ResultAnalyzer resultAnalyzer;
+	private ResultAnalyzer analyzer;
+	private Player p1, p2, currentPlayer;
+	private Gamestatus status = Gamestatus.INPROGRESS;
+	private int moveCounter = 1;
 
-	private User[] users;
-	private int turn;
-
-	public Game(Board board, ResultAnalyzer resultAnalyzer, User[] users) {
-		this.board = board;
-		this.resultAnalyzer = resultAnalyzer;
-		this.users = users;
-		this.turn = 0;
+	public Game(Player playerOne, Player playerTwo) {
+		board = new Board();
+		analyzer = new ResultAnalyzer(board);
+		p1 = playerOne;
+		p2 = playerTwo;
+		currentPlayer = p1;
 	}
 
-	public Result play(int cellId) {
-		try {
-			board.markCell(cellId, users[turn].getMark());
-			changeTurn();
-		} catch (NonEmptyCell e) {
-			return Result.INPROGRESS;
+	public int getMOVE_COUNTER() {
+		return moveCounter;
+	}
+
+	public void makeMove(Player p, int cellNumber) throws CellIsAlredyMarkedException {
+		board.putMarkOnCell(p.getMark(), cellNumber);
+		moveCounter++;
+	}
+
+	public Gamestatus play(int cellNumber) throws CellIsAlredyMarkedException {
+		currentPlayer = getCurrentPlayer();
+		makeMove(currentPlayer, cellNumber);
+		if (analyzer.checkForWin()) {
+			status = Gamestatus.WIN;
 		}
-		return resultAnalyzer.checkBoard(users[turn].getMark(), cellId);
+		if (analyzer.checkForDraw()) {
+			status = Gamestatus.DRAW;
+		}
+		return status;
 	}
 
-	public void changeTurn() {
-		this.turn = (this.turn + 1) % this.users.length;
+	public Player getCurrentPlayer() {
+		if (moveCounter % 2 == 0) {
+			return p2;
+		}
+		return p1;
 	}
 
-	public User getCurrentUser() {
-		return this.users[this.turn];
-	}
-
-	public Board getBoard() {
-		return this.board;
+	public void displayBoard() {
+		for (int index = 0; index < board.getBoardSize(); index++) {
+			System.out.println(board.getMarkOnCell(index++) + "\t" + board.getMarkOnCell(index++) + "\t"
+					+ board.getMarkOnCell(index));
+		}
 	}
 }
