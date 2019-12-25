@@ -9,15 +9,16 @@ import com.techlab.ttt.Player;
 
 public class ConsoleTest {
 	public static void main(String args[]) throws CellIsAlredyMarkedException, CellIndexOutOfBound {
-		Player player1 = new Player("sonam", Mark.O);
-		Player player2 = new Player("anjali", Mark.X);
+		Player player1 = new Player("anjali", Mark.O);
+		Player player2 = new Player("sonam", Mark.X);
+
 		Game game = new Game(player1, player2);
 
 		game.displayBoard();
 		System.out.println(" ");
 
 		game.makeMove(player1, 4);
-		game.makeMove(player2, 7);
+		game.makeMove(player2, 1);
 		game.displayBoard();
 		System.out.println(" ");
 
@@ -26,7 +27,7 @@ public class ConsoleTest {
 		game.displayBoard();
 		System.out.println(" ");
 
-		game.makeMove(player1, 1);
+		game.makeMove(player1, 7);
 		game.makeMove(player2, 5);
 		game.displayBoard();
 		System.out.println(" ");
@@ -37,7 +38,7 @@ public class ConsoleTest {
 
 		Gamestatus status = game.play(0);
 		String player = game.getCurrentPlayer().getName();
-		System.out.println("Game status is:" + status + " By " + player);
+		System.out.println("Game is:" + status + " By " + player);
 
 	}
 }

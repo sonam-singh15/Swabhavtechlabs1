@@ -28,13 +28,12 @@ public class Game {
 	public Gamestatus play(int cellNumber) throws CellIsAlredyMarkedException {
 		currentPlayer = getCurrentPlayer();
 		makeMove(currentPlayer, cellNumber);
-
-		if (analyzer.checkForDraw()) {
-			status = Gamestatus.DRAW;
-		}
 		if (analyzer.checkForWin()) {
 			status = Gamestatus.WIN;
+		} else if (analyzer.checkForDraw()) {
+			status = Gamestatus.DRAW;
 		}
+
 		return status;
 	}
 
