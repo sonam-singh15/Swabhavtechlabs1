@@ -14,7 +14,7 @@ public class GameTest {
 		System.out.println(game.getMOVE_COUNTER());
 		String expected = playerOne.getName();
 		String actual = game.getCurrentPlayer().getName();
-		System.out.println("CUrrent player:-" + actual);
+		System.out.println("Current player:-" + actual);
 		assertEquals(expected, actual);
 	}
 
@@ -25,7 +25,7 @@ public class GameTest {
 		Player playerTwo = new Player("anjali", Mark.X);
 		Game game = new Game(playerOne, playerTwo);
 		game.play(0);
-		System.out.println(game.getMOVE_COUNTER());
+		//System.out.println(game.getMOVE_COUNTER());
 		String expected = playerTwo.getName();
 		String actual = game.getCurrentPlayer().getName();
 		assertEquals(expected, actual);

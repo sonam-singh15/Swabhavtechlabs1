@@ -25,4 +25,5 @@ public class Board {
 	public Cell[] getCellsArray() {
 		return cellsArray;
 	}
+
 }

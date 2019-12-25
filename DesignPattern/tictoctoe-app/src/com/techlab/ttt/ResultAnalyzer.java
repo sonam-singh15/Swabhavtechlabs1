@@ -8,7 +8,6 @@ public class ResultAnalyzer {
 		this.board = board;
 	}
 
-	// Check for win.....
 	public boolean checkForWin() {
 		if (checkRowForMark(Mark.O)) {
 			return true;
@@ -67,7 +66,6 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	// CheckForDraw
 	public boolean checkForDraw() {
 		if (IsBoardFillOut()) {
 			return true;
@@ -88,12 +86,5 @@ public class ResultAnalyzer {
 			return true;
 		return false;
 	}
-
-//	// display board
-//	public void displayBoard() {
-//		for(int index =0 ; index < SIZE_OF_BOARD ; index++) {
-//			System.out.println(board.getMarkOnCell(index));
-//		}
-//	}
 
 }
