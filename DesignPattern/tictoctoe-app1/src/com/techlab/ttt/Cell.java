@@ -1,26 +1,26 @@
 package com.techlab.ttt;
 
 public class Cell {
-
-	private Mark mark;
-
+	private Mark cellState;
+	
 	public Cell() {
-		this.mark = Mark.EMPTY;
+		this.cellState = Mark.EMPTY;
+	}
+	
+	public Mark getCellState() {
+		return cellState;
 	}
 
-	public Mark getMark() {
-		return this.mark;
+	public void setCellState(Mark cellState) throws CellIsAlredyMarkedException {
+		if(!isCellEmpty())
+			throw new CellIsAlredyMarkedException();
+		this.cellState = cellState;
 	}
 
-	public void setMark(Mark mark) throws NonEmptyCell {
-		if (this.mark != Mark.EMPTY)
-			throw new NonEmptyCell();
-		this.mark = mark;
-
-	}
-
-	public boolean isEmpty() {
-		return this.mark == Mark.EMPTY;
-
+	private boolean isCellEmpty() {
+		 if(this.cellState==Mark.EMPTY) {
+			 return true;
+		 }
+		 return false;
 	}
 }

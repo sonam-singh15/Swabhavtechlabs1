@@ -1,6 +1,6 @@
 package com.techlab.ttt;
 
-public enum Result {
+public enum GameStatus {
 
 	WIN, DRAW, INPROGRESS, INVALID
 
