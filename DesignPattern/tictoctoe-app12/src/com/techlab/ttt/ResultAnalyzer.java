@@ -59,8 +59,7 @@ public class ResultAnalyzer {
 	private boolean checkDiagonalForMark(Mark mark) {
 		if (board.getMarkOnCell(0) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(8) == mark) {
 			return true;
-		}
-		if (board.getMarkOnCell(2) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(6) == mark) {
+		} else if (board.getMarkOnCell(2) == mark && board.getMarkOnCell(4) == mark && board.getMarkOnCell(6) == mark) {
 			return true;
 		}
 		return false;
