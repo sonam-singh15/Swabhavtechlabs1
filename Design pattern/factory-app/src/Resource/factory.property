@@ -1,0 +1,3 @@
+#current.factory=com.techlab.factory.singleton1.BMWFactory
+current.factory=com.techlab.factory.singleton1.AudiFactory
+#current.factory=com.techlab.factory.singleton1.TeslaFactory

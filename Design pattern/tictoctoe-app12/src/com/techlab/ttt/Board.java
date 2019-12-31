@@ -1,0 +1,29 @@
+package com.techlab.ttt;
+
+public class Board {
+	private Cell[] cellsArray;
+	private static int NUMBER_OF_CELL = 9;
+
+	public Board() {
+		cellsArray = new Cell[NUMBER_OF_CELL];
+		for (int index = 0; index < NUMBER_OF_CELL; index++)
+			cellsArray[index] = new Cell();
+	}
+
+	public void putMarkOnCell(Mark mark, int cellNumber) throws CellIsAlredyMarkedException {
+		cellsArray[cellNumber].setCellState(mark);
+	}
+
+	public Mark getMarkOnCell(int cellNumber) {
+		return cellsArray[cellNumber].getCellState();
+	}
+
+	public int getBoardSize() {
+		return cellsArray.length;
+	}
+
+	public Cell[] getCellsArray() {
+		return cellsArray;
+	}
+
+}
