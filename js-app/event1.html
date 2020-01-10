@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Event 1</title>
+</head> 
+<body>
+    <button type="button" id="myBtn">PrintMessage</button>
+    <script>
+    function sayHello(){
+        alert(" Hello!");
+    }
+    function sayGudBye(){
+        alert("GudBye!");
+    }
+    var btn = document.getElementById("myBtn");
+    // Assigning event listeners to the button
+    btn.addEventListener("click", sayHello);
+    btn.addEventListener("click", sayGudBye);
+    </script>
+</body>
+</html> 
