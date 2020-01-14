@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IIFC</title>
+</head>
+<body>
+<script>
+    var f1=function()
+    {
+        console.log("Inside function f1");
+        var x;
+    }();
+</script>
+<script>
+    (function f2()
+    {
+        console.log("Inside function f2");
+
+    }());
+</script>
+<script>
+    (function f3()
+   {
+       console.log("inside f3");
+
+   })();
+   f1();
+</script>
+</body>
+</html>

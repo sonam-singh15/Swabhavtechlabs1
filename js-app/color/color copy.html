@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" id="fullHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DropdownList of colors</title>
+</head>
+<body>
+    <select id="colorChanger">
+        <option>Choose a color</option>
+        <option value="#FFCCCB">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="purple">Purple</option>
+    </select>
+    <p>Paragraph 1</p>
+<p>Paragraph 2</p>
+
+<script>
+    document.getElementById('colorChanger').addEventListener('change', changeColor);
+
+function changeColor() {
+    var color = document.getElementById('colorChanger').value;
+
+    var list = document.getElementsByTagName('p');
+
+    for (var i=0; i<list.length; i++) {
+        list[i].style.color = color;
+    }
+}
+</script>
+</body>
+</html>

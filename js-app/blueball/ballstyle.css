@@ -1,0 +1,52 @@
+ .ballStyle {
+            border: none;
+            color: white;
+            padding: 30px;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 50%;
+        }
+        
+        body {
+            background: whitesmoke;
+            text-align: center;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        h2 {
+            font-family: 'lOBSTER', sans serif;
+            margin: 8px 24px;
+            font-size: 1.75em;
+            font-weight: normal;
+            line-height: 0.8em;
+            color: #e3a900;
+            letter-spacing: 1.6px;
+        }
+        
+        h4 {
+            font-family: 'lOBSTER', sans serif;
+            margin: 8px 24px;
+            font-size: 1.15em;
+            font-weight: normal;
+            line-height: 0.8em;
+            color: #056374;
+            letter-spacing: 1.6px;
+        }
+        
+        .box {
+            background: rgb(74, 110, 207);
+            line-height: 10px height;
+            color: whitesmoke;
+            width: 50%;
+            margin: 10px auto;
+            padding: 13px;
+            font-size: 1.2 em;
+        }
+    

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" id="fullHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slider of specific range</title>
+</head>
+<body>
+<label class="switch" >
+    <input id="check"  type="checkbox">
+    <span class="slider round"></span>
+    </label>
+
+    <div id="spinner" >
+    </div>
+    
+    <script>
+        var checkbox=document.getElementById("check");
+        console.log(checkbox);
+        
+
+        var spinner=document.getElementById("spinner");
+        checkbox.addEventListener('change' ,function()
+        {
+            if(this.checked)
+            {
+                spinner.innerHTML=" <br><br><br><img src='25.gif' height=100 width=150>";
+               } else{
+                    spinner.innerHTML=" ";
+            }
+        })
+    </script>
+</label> 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hoisting</title>
+</head>
+<body>
+    <script>
+        var s1={id:101,name:'sonam',cgpa:7.5}
+        console.log(s1.id);
+        console.log(s1['name']);
+        console.log(s1['cgpa']);
+        var property='id';
+        console.log(s1[property]);
+    </script>
+    <script>
+        var functions = [
+    function() { console.log('fisrt') },
+    function() { console.log('second') },
+    function() { console.log('third') }
+]
+console.log(functions[0]());
+console.log(functions[1]());
+console.log(functions[2]());
+    </script>
+    <script>
+        var students=[ function() { console.log('fisrt student') },
+    function() { console.log('second student') },
+    function() { console.log('third student') },
+]
+//var student=['sonam','anjali','neha'];
+/*for(var i=0;i<students.length;i++)
+{
+    console.log(students[i]);
+} */
+for(var s of students)
+{
+    console.log(s)
+}
+    </script>
+    <script>
+        var marks=[10,20,30,40];
+        mutable(marks);
+        for(var m of marks)
+        {
+            console.log(m);
+        }
+        function mutable(marks)
+        {
+            for(var m of marks)
+        {
+           marks[m]=0;
+        }
+        }
+    </script>
+    </body>
+    </html>

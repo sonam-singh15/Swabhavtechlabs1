@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" id="fullHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slider of specific range</title>
+</head>
+<body>
+    <div class="slidecontainer">
+   <input type="range" min="1" max="100" value="1" id="myRange" class="slider">
+   <p>Value: <span id="demo"></span></p>
+   <div id="buttonspace"  class="buttons">
+   </div>
+    <script>
+        var slider=document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        var button=document.getElementById("buttonspace");
+
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+        button.innerHTML=" ";
+        output.innerHTML = this.value;
+        currentvalue=this.value;
+
+        for(var no=1;no<=currentvalue;no++)
+        {
+            button.innerHTML+="<button type='button' id=" +no+ ">"+no+"</button>";
+        }
+        button.addEventListener("click",function(e)
+        {
+            console.log(e.target.id);
+            button.innerHTML = "Button clicked, id = " 
+                    + e.target.id; 
+        });
+        
+        }
+        
+    </script>
+     </div>
+</body>
