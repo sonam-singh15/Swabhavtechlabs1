@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Question bank</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onload="showInstruction()">
+        <div id="startButtonDiv">
+
+        </div>
+        <div id="questionFrame" style="align-content: center">
+
+        </div>
+        <div id="invalidMoveFrame">
+            <div id="container"></div>
+        </div>
+        <script>
+            var startButtonDiv = document.getElementById("startButtonDiv");
+            var questionFrame = document.getElementById("questionFrame");
+            var nextButtonDiv = document.getElementById("nextButtonDiv");
+           
+            var startButton;
+            var nextButton;
+            var currentQuestion = 0;
+            var answerList = [];
+            var userSelectedOption;
+           
+            var validMove = false;
+            var RightAnswerbyUser = 0;
+            var WrongAnswerbyUser = 0;
+           
+            var questionOne = {
+                id: 1,
+                text: "What is 2*7?",
+                options: ['14', '10', '19'],
+                answer: 1
+            }
+            var questionTwo = {
+                id: 2,
+                text: "Who won maharastra election??",
+                options: ['BJP','BJP+SHIVSENA','NCP+SHIVSENA+CONGRESS'],
+                answer: 3
+            }
+            var questionThree = {
+                id: 3,
+                text: "What is area of circle if its diameter 10",
+                options: ['25','20','13'],
+                answer: 1
+            }
+            var questionFour = {
+                id: 4,
+                text: "For which kind of call ajax used for ?",
+                options: ['Synchronous','Asynchronous','both'],
+                answer: 2
+            }
+            var questionFive = {
+                id: 5,
+                text: "what is 20/10",
+                options: ['2','3','4'],
+                answer: 1
+            }
+            var questionList = [
+                questionOne,
+                questionTwo,
+                questionThree,
+                questionFour,
+                questionFive
+            ];
+            function showInstruction() {
+                createElement("button", 'startButton', "Start Test", startButtonDiv);
+                startButton = document.getElementById("startButton");
+                startButton.onclick = startTest;
+            }
+            function startTest() {
+                removeAllElementsOfId(startButtonDiv);
+                loadQuestion();
+            }
+            function isUserhaveSelectedOption(event) {
+                if (event.target.id >= 0)
+                    userSelectedOption = event.target.id;
+            }
+            function notValidMove() {
+                removeAllElementsOfId(invalidMoveFrame);
+                createElement("p", "invalidMove", "Please select any option", invalidMoveFrame);
+            }
+            function nextQuestion() {
+                if (userSelectedOption == undefined)
+                    notValidMove();
+                if (userSelectedOption != undefined) {
+                    answerList.push(userSelectedOption);
+                    console.log(answerList);
+                    userSelectedOption = undefined;
+                    currentQuestion++;
+                    loadQuestion();
+                }
+            }
+            function previousQuestion() {
+                currentQuestion -= 1;
+                loadQuestion();
+                document.getElementById(answerList[currentQuestion]).checked = true;
+                userSelectedOption = answerList[currentQuestion];
+                answerList.pop();
+            }
+            function isLastQuestion() {
+                if ((currentQuestion + 1) == questionList.length)
+                    return true;
+                return false;
+            }
+            function loadQuestion() {
+                removeAllElementsOfId(questionFrame);
+                removeAllElementsOfId(invalidMoveFrame);
+                createElement("p", currentQuestion, "Question Number : " + (currentQuestion + 1) + "/" + questionList.length, questionFrame);
+                var question = questionList[currentQuestion];
+                createElement("p", currentQuestion, question.text, questionFrame);
+                createRadioButtons(question.options);
+               
+                if (isLastQuestion()) {
+                    createElement("button", 'finishButton', "Finish", questionFrame);
+                    nextButton = document.getElementById("finishButton");
+                    nextButton.onclick = finishQuiz;
+                }
+                if (!isLastQuestion()) {
+                    createElement("button", 'nextButton', "Next", questionFrame);
+                    nextButton = document.getElementById("nextButton");
+                    nextButton.onclick = nextQuestion;
+                }
+                userSelectedOption = undefined;
+            }
+            function finishQuiz() {
+                if (userSelectedOption == undefined)
+                    notValidMove();
+                if (userSelectedOption != undefined) {
+                    answerList.push(userSelectedOption);
+                    currentQuestion++;
+                    displayResult();
+                }
+            }
+            function displayResult() {
+                removeAllElementsOfId(questionFrame);
+                removeAllElementsOfId(invalidMoveFrame);
+                for (let index = 0; index < questionList.length; index++) {
+                    if (answerList[index] == questionList[index].answer)
+                        RightAnswerbyUser++;
+                }
+                WrongAnswerbyUser = questionList.length - RightAnswerbyUser;
+    
+            }
+            
+            function createRadioButtons(options) {
+                var optionNumber = 0;
+                options.forEach(element => {
+                    var radio = document.createElement("input");
+                    var label = document.createElement("label");
+                    radio.id = optionNumber;
+                    radio.type = "radio";
+                    radio.name = "answer";
+                    radio.value = element;
+                    radio.onclick = isUserhaveSelectedOption
+                    label.appendChild(radio);
+                    label.appendChild(document.createTextNode(element));
+                    questionFrame.appendChild(label);
+                    var br = document.createElement("br");
+                    questionFrame.appendChild(br);
+                    optionNumber++;
+                });
+            }
+            function createElement(tag, id, text, parent) {
+                var child = document.createElement(tag);
+                child.id = id;
+                child.innerHTML = text;
+                parent.appendChild(child);
+            }
+            function removeAllElementsOfId(id) {
+                while (id.hasChildNodes()) {
+                    id.removeChild(id.lastChild);
+                }
+            }
+        </script>
+</body>
+
+</html>

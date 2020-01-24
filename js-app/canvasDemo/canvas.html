@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" id="fullHtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Demo</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="578" height="250"></canvas>
+    <script>
+     var canvas = document.getElementById('myCanvas');
+     var context = canvas.getContext('2d');
+
+var x = canvas.width / 2;
+var y = canvas.height / 2;
+var value = 1;
+var val = 3;
+
+var segmentWidth = 360 / val;
+var pieAngle = 2 * Math.PI / val;
+var segmentDepth = 150;
+function init() {
+    for (var i = 1; i <= value; i++) {
+        drawSegments(i * segmentDepth);
+    }
+}
+
+function drawSegments(radius) {
+    for (var i = 0; i < val; i++) {
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, radius, i*pieAngle, (i+1)*pieAngle, false);
+        context.lineWidth = segmentDepth;
+        var hueValue = i * 15;
+        context.fillStyle = 'hsl(' + hueValue + ',70%, 60%)';
+    
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#444';
+        context.stroke();
+    }
+}
+
+init();
+    </script>
+    </body>
+    </html>

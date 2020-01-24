@@ -1,0 +1,10 @@
+Social networking
+The social networking aspect of GitHub is probably its most powerful feature, allowing projects to grow more than just about any of the other features offered. Each user on GitHub has their own profile that acts like a resume of sorts, 
+showing your past work and contributions to other projects via pull requests.
+
+Project revisions can be discussed publicly, so a mass of experts can contribute knowledge and collaborate 
+to advance a project forward. Before the advent of GitHub, developers interested in contributing to a project would usually need to find some means of contacting the authors—probably by email—and then convince them that they can be trusted and their contribution is legit.
+
+Changelogs
+When multiple people collaborate on a project, it’s hard to keep track revisions—who changed what,
+ when, and where those files are stored. GitHub takes care of this problem by keeping track of all the changes that have been pushed to the repository.

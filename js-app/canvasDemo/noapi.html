@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>XMLHttpRequest</title>
+</head>
+
+<body>
+	<h1>XMLHttpRequest</h1>
+	<div>
+		Number: <input type="text" id="number" />
+		<button id="btnSearch">Search</button>
+	</div>
+	<div>
+		<h3>data:</h3>
+		<div id="display">
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			var btnSearch = document.getElementById('btnSearch');
+			var input = document.getElementById('number');
+			var display = document.getElementById('display');
+
+			var apiUrl = 'http://numbersapi.com/';
+			var value = 'data';
+			let searches = [];
+
+			 getSearchResObject = function (data, date) {
+				return { timestamp: date, data: data };
+			}
+
+			 addData = function (data, date) {
+				const searchResult = getSearchResObject(data, date);
+				searches.push(searchResult);
+				localStorage.setItem(value, JSON.stringify(searches));
+			}
+
+			 displayData = function (data, date) {
+				let div = document.createElement('div');
+				let text = document.createTextNode(data);
+				div.appendChild(text);
+				display.insertBefore(div, display.firstChild);
+			}
+
+			var onXHRStateChange = function (e) {
+				switch (this.readyState) {
+					case 4:
+						if (this.status == 200) {
+							console.log('received:', this.responseText);
+							addData(this.responseText, this.searchTime);
+							displayData(this.responseText, this.searchTime);
+						}
+						break;
+				}
+			}
+			 search = function (value) {
+				let xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = onXHRStateChange;
+				const finalUrl = apiUrl + value;
+				xhr.open('GET', finalUrl, true);
+				xhr.send();
+			}
+
+			 onClickSearch = function (e) {
+				let value = input.value;
+				search(value);
+			 }
+			btnSearch.addEventListener('click', onClickSearch);
+			
+
+		})();
+	</script>
+</body>
+
+</html>
