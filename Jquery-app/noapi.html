@@ -1,0 +1,43 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Numbers</title>
+    <script src="jq.js"></script>
+</head>
+
+<body>
+    <div id='getData'>
+         <input id="textArea"  type="number" placeholder="Enter a number"></input> 
+        <button id="button">Click</button></div>
+    <div id="facts"></div>
+    
+    <script>
+        (function () {
+            $('document').ready(function () {
+                $('#button').on('click', getFacts);
+            });
+
+            function getFacts() {
+                var number = $("#textArea").val();
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://numbersapi.com/" + number,
+                    success: function (data) {
+                        $('#facts').html(data)
+
+                    }
+
+                })
+            }
+        })();
+
+    </script>
+
+    </script>
+
+
+</body>
+
+</html>

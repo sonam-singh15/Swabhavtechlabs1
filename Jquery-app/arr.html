@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Add Options to a Select from a JS Object</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+var colors = { "#ff000": "Red", "#ff00ff": "Green", "#ffff00": "Blue" };
+ 
+$(document).ready(function(){
+    var selectElem = $("#mySelect");
+    
+    $.each(colors, function(index, value){
+        $("<option/>", {
+            value: index,
+            text: value
+        }).appendTo(selectElem);
+
+       
+    });
+    $("option:selected").text;
+                   alert('Color hash value is:-' + $(this).value);
+});
+</script>
+</head>
+<body>
+    <label>Color:</label>
+    <select id="mySelect">
+        <option value="0">Select</option>
+    </select>
+</body>
+</html>                            

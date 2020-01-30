@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bind Demo</title>
+    <script src="jq.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        Text : <input id="text" type="text" placeholder="Write Text"><br>
+        Font Size :<input id="fontSize" type="number" placeholder="Enter size"><br>
+        Background Color :<select id='bgColor'>
+            <option selected disabled>Select a color</option>
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+        </select><br>
+        Foreground Color :<select id='fgColor'>
+            <option selected disabled>Select a color</option>
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+        </select>
+    </div>
+    <div id="result"> </div>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#result").css("width", "300px");
+            $("#result").css("height", "300px");
+            $("#result").css("margin-top", "200px");
+           
+            $("#result").css("overflow", "visible");
+            $("#text").change( function () {
+                var text = $(this).val();
+                $('#result').html(text);
+            });
+            $("#fontSize").change(function () {
+                var fontSize = $(this).val();
+                $('#result').css("font-size", fontSize + "px");
+
+            });
+            $('#bgColor').change(function () {
+                var bgColor = this.value;
+                $("#result").css("background-color", bgColor);
+            });
+            $('#fgColor').change(function () {
+                var fgColor = this.value;
+                $("#result").css("color", fgColor);
+                console.log(fgColor);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
